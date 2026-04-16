@@ -8,7 +8,13 @@ from io import BytesIO
 from huggingface_hub import InferenceClient 
 
 
-MODEL_ID = "stabilityai/stable-diffusion-xl-base-1.0"
+MODEL_ID = "runwayml/stable-diffusion-v1-5"
+
+img_client = InferenceClient(
+
+api_key=config.HF_API_KEY
+
+)
 FILTER_API_URL = "https://filters-zeta.vercel.app/api/filter"
 ENHANCE_SYS = (
 "Improve prompts for text-to-image. Return ONLY the enhanced prompt. "
@@ -16,7 +22,7 @@ ENHANCE_SYS = (
 )
 NEGATIVE = "low quality, blurry, distorted, watermark, text, cropped"
 
-img_client = InferenceClient(provider="hf-inference", api_key=config.HF_API_KEY)
+
 
 MATH_SYSTEM = """You are a Math Mastermind. For every math problem:
 
